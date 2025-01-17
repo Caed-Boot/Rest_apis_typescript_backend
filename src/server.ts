@@ -28,7 +28,7 @@ connectDB()
 // Permitir conexiones
 const corsOptions : CorsOptions = {
     origin: function (origin, callback) {
-        if (origin === process.env.FRONTED_URL || !origin) {
+        if (origin === process.env.FRONTED_URL) {
             callback(null, true)
         } else {
             callback(new Error('Error de CORS'))
@@ -47,5 +47,6 @@ server.use(express.json())
 server.use(morgan('dev'))
 
 server.use('/api/products', router)
+
 
 export default server
