@@ -48,8 +48,4 @@ server.use(morgan('dev'))
 
 server.use('/api/products', router)
 
-server.get('/api', (req, res) => {
-    res.json({msg: 'Desde API'})
-})
-
 export default server
