@@ -47,5 +47,4 @@ server.use(morgan('dev'))
 
 server.use('/api/products', router)
 
-
 export default server

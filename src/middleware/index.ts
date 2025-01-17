@@ -10,3 +10,10 @@ export const handleInputErrors = (req : Request, res : Response, next : NextFunc
 
     next()
 }
+
+export const handleHeaders = (req : Request, res : Response, next : NextFunction) => {
+    res.append('Access-Control-Allow-Origin', ['*']);
+    res.append('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.append('Access-Control-Allow-Headers', 'Content-Type');
+    next();
+}
