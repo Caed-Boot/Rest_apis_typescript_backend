@@ -28,7 +28,7 @@ const server = express()
 // Permitir conexiones
 const corsOptions : CorsOptions = {
     origin: function(origin, callback) {
-        if (origin === process.env.FRONTED_URL || !origin) {
+        if (origin === 'https://rest-apis-typescript-frontend-nu-two.vercel.app' || !origin) {
             callback(null, true)
         } else {
             callback(new Error('Error de CORS'))
