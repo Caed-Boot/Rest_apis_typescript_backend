@@ -28,7 +28,7 @@ const server = express()
 // Permitir conexiones
 const corsOptions : CorsOptions = {
     origin: function(origin, callback) {
-        if (origin === process.env.FRONTED_URL) {
+        if (origin === process.env.FRONTED_URL || !origin) {
             callback(null, true)
         } else {
             callback(new Error('Error de CORS'))
@@ -38,7 +38,7 @@ const corsOptions : CorsOptions = {
 server.use(cors(corsOptions))
 
 
-// Leer datos de formularios
+// Leer datos de formularios||
 // .use se usa en todos los request
 server.use(express.json())
 
