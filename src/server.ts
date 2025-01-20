@@ -4,6 +4,8 @@ import morgan from 'morgan'
 import cors, { CorsOptions } from 'cors'
 import router from "./routes";
 import db from "./config/db";
+import dotenv from 'dotenv'
+dotenv.config()
 
 
 
@@ -28,7 +30,7 @@ const server = express()
 // Permitir conexiones
 const corsOptions : CorsOptions = {
     origin: function(origin, callback) {
-        if (origin === 'https://rest-apis-typescript-frontend-nu-two.vercel.app' || !origin) {
+        if (origin === process.env.FRONTEND_URL || !origin) {
             callback(null, true)
         } else {
             callback(new Error('Error de CORS'))
